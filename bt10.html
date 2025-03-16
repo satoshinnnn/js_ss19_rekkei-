@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr1 = [ "không ", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín"] ;
+        const arr2 =["mười", "mươi",  "trăm", "lẻ", "mốt"];
+        const number = +prompt("Mời bạn nhập vào số: ");
+        if( number<0 || number >999 || isNaN(number) ) {
+            alert("Số bạn nhập không hợp lệ");
+        }
+        else {
+            let a = Math.floor(number/100);
+            let b = Math.floor(number/10) % 10;
+            let c = number % 10;
+            
+            if (number < 10)
+            {
+                alert(arr1[number]);
+            }
+            else if (number<20) {
+                alert( arr2[0] + " " + (c!==0? arr1[c]:""));
+            }
+            //
+            else if (number < 100 && c===1) {
+                alert(arr1[b] + " " + arr2[1] + " " + arr2[4] );
+            }
+            //
+            else if (number < 100) {
+                alert(arr1[b] + " " + arr2[1] + " " + (c!==0? arr1[c]:"") );
+            }
+            else if (number%100 === 0) {
+                alert(arr1[a] + " " + arr2[2]);
+            
+            }
+            else if (b === 0) {
+                alert(arr1[a] + " " + arr2[2] + " " + arr2[3] + " " + arr1[c]);
+            }
+            else if (b === 1) {
+                alert(arr1[a] + " " + arr2[2] + " " + arr2[0] + " " + arr1[c] );
+            }
+            //
+            else if (c===1) {
+                alert(arr1[a] + " " + arr2[2] + " " + arr1[b] + " " + arr2[1] + " " + arr2[4]);
+            }
+            // 
+            else {
+                alert(arr1[a] + " " + arr2[2] + " " + arr1[b] + " " + arr2[1] + " " + (c!==0? arr1[c]:""));
+            }
+        }
+    </script>
+</body>
+</html>
